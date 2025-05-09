@@ -286,7 +286,10 @@
     </div>
 
     <h3 class="text-center pt-5" id="contact" style="color: #896161 ">❀ Contáctame fo Order ❀</h3>
-    <form name="submit-to-google-sheet" class="container mt-4" style="max-width: 600px;">
+    <div class="alert alert-success alert-dimissible fade show d-none" role="alert">
+      <strong>Aww sweetheart</strong> Please kindly wait your love berry <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <form name="contact-form" class="container mt-4" style="max-width: 600px;">
       <div class="mb-3">
         <label for="nameInput" class="form-label">Name</label>
         <input type="text" class="form-control" id="nameInput" placeholder="Your lovely name, pelase?" name="nama">
@@ -299,7 +302,12 @@
         <label for="messageInput" class="form-label">Cravings du Jour (Your Sweet Selections)</label>
         <textarea class="form-control" id="messageInput" rows="4" placeholder="Tell us your dreamy order ♡" name="pesan"></textarea>
       </div>
-      <button type="submit" class="btn" style="background-color: #896161;">💌💌💌</button>
+      <button type="submit" class="btn btn-submit" style="background-color: #896161;">💌💌💌</button>
+<button class="btn btn-primary btn-loading d-none" type="button" disabled>
+  <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+  <span role="status">Loading...</span>
+</button>
+
     </form>
 
     <div class="text-center" style="color: #d4a5a5; font-size: 1.5rem;">— ✿ —</div>
@@ -370,6 +378,39 @@ function closePopupAd() {
 
     </script>
     
+    <script>
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbzd8DgrbJLRbFmPqi_LqVfS5yo8z7lj2aZBLAzyqAN003FZSuWAzyQy1FF_nDDhdMguRQ/exec'
+      const form = document.forms['contact-form']
+    
+      const btnSubmit = document.querySelector('.btn-submit') 
+      const btnLoading = document.querySelector('.btn-loading')
+      const alert = document.querySelector('.alert')
+    
+      form.addEventListener('submit', e => {
+        e.preventDefault()
+    
 
+        btnLoading.classList.toggle('d-none')
+        btnSubmit.classList.toggle('d-none')
+    
+        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+          .then(response => {
+            btnLoading.classList.toggle('d-none')
+            btnSubmit.classList.toggle('d-none')
+            alert.classList.toggle('d-none')
+            form.reset()
+            
+            console.log('Success!', response)
+          })
+          .catch(error => {
+            console.error('Error!', error.message)
+            btnLoading.classList.toggle('d-none')
+            btnSubmit.classList.toggle('d-none')
+          })
+      })
+    </script>
+    
+    
+  
   </body>
 </html>
