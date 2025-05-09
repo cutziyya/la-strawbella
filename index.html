@@ -66,9 +66,14 @@
         color: #dacacb;
       }
 
-      h1, .navbar-brand {
+      h1, .navbar-brand, label {
         font-family: 'Dancing Script', cursive;
         font-weight: bold;
+      }
+
+      label {
+        font-size: 1.6rem;
+        color: #896161;
       }
 
       .carousel-container {
@@ -84,14 +89,14 @@
       .neon-text {
   background-color: #896161;
   display: inline-block;
-  padding: 10px 20px;
+  padding: 50px 70px;
   border-radius: 10px;
   font-weight: bold;
   font-size: 3rem;
   color: transparent;
   background-clip: text;
   -webkit-background-clip: text;
-  background-image: linear-gradient(270deg, #90083c, #e3979d, #e3979d, #90083c);
+  background-image: linear-gradient(270deg, #90083c, #e5b1b5, #e5b1b5, #90083c);
   background-size: 400% 400%;
   animation: glowText 6s ease-in-out infinite;
 }
@@ -108,6 +113,32 @@
   }
 }
 
+.close-image-ad {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 10;
+  padding: 2px 10px;
+  border-radius: 5px;
+}
+#popupAd .close-image-ad {
+  position: absolute;
+  font-size: 30px;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 5px 12px;
+  border-radius: 50%;
+}
+
+
+
 
 
     </style>
@@ -115,7 +146,6 @@
 
   <body>
 
-    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: #896161;">
       <div class="container">
         <a class="navbar-brand" href="#">La Strawbella</a>
@@ -127,7 +157,7 @@
             <a class="nav-link active" href="#">Home</a>
             <a class="nav-link" href="#aboutMe" onclick="showAboutUs()">About La Strawbella</a>
 
-            <a class="nav-link" href="#project">Dulce Delicia</a>
+            <a class="nav-link" href="#project">Menu</a>
             <a class="nav-link" href="#contact">Contact</a>
           </div>
         </div>
@@ -162,17 +192,34 @@
         </div>
       </div>
 
-      <section id="hero">
-        <h1 class="display-1" style="color:#896161;">✩°｡⋆ La Strawbella ⋆｡°✩</h1>
+      <section id="hero" style="margin-top: 40px;">
+
+        <h1 class="display-1" style="color:#896161;" >✩°｡⋆ La Strawbella ⋆｡°✩</h1>
         <h2 class="display-6 neon-text" >
           ¡Hola ✧ Welcome to nuestro sitio web! ʕ•́ᴥ•̀ʔっ♡
         </h2>
       </section>
+
+    <div style="display: flex; justify-content: center;">
+      <div id="imageAdBanner" style="position: relative; width: 100%; max-width: 900px;">
+        <button onclick="closeImageAd()" class="close-image-ad">×</button>
+        <img src="img/gambar.png" alt="Banner Ad" style="width: 100%; display: block;">
+      </div>
     </div>
+    
+    
 
     <h3 class="text-center pt-5" id="aboutMe" style="color: #896161"> ❀ Where a strawberry tells a love story ❀</h3>
     <div class="row justify-content-center fs-5 about-section" id="aboutSection">
-    
+      <div class="col-12 col-md-3 d-none" id="adsBox">
+        <div class="ad-box shadow-sm" style="background:#fff5f5; border:1px solid #f4c2c2; border-radius: 6px; padding: 15px; position: relative; animation: fadeIn 0.5s ease;">
+          <button onclick="closeAds()" style="position: absolute; top: 5px; right: 10px; border: none; background: transparent; font-weight: bold; font-size: 20px;">×</button>
+          <img src="img/gambar3.jpg" alt="Fake Product" class="img-fluid rounded mb-2">
+          <div class="headline fw-bold" style="color:#896161"> Your sweetest pairings, found only on our official website – La Strawbella. </div>
+          <div class="desc" style="font-size: 0.9rem;">Get 50% off only in website purchasing! </div>
+          <a href="#" class="btn btn-danger btn-sm mt-2">Order Now!</a>
+        </div>
+      </div>
       <div class="col-12 col-md-6" id="aboutContent">
         <p style="background-color: rgba(248, 207, 207, 0.4); padding: 5px 10px; border-radius: 3px; text-align: justify;">
           La Strawbella is where sweetness meets charm; an ode to strawberries draped in soft cream and golden warmth. Here, the humble berry is reborn in decadent scoops of gelato, in crisp waffle folds kissed by sugar, and in pancakes that melt like whispered dreams.
@@ -181,58 +228,76 @@
           At La Strawbella, we believe that beauty should be tasted, not just seen. That indulgence can be gentle, not loud. And that even something as simple as a strawberry can hold a whole universe of wonder.
         </p>
       </div>
-      <div class="col-12 col-md-3 d-none" id="adsBox">
-        <div class="ad-box shadow-sm" style="background:#fff5f5; border:1px solid #f4c2c2; border-radius: 6px; padding: 15px; position: relative; animation: fadeIn 0.5s ease;">
-          <button onclick="closeAds()" style="position: absolute; top: 5px; right: 10px; border: none; background: transparent; font-weight: bold; font-size: 20px;">×</button>
-          <img src="img/gambar1.jpg" alt="Fake Product" class="img-fluid rounded mb-2">
-          <div class="headline fw-bold text-danger"> MLBB X Naruto Event has begun now! </div>
-          <div class="desc" style="font-size: 0.9rem;">Diskon 70% hanya hari ini. Rasa aneh, tapi viral!</div>
-          <a href="#" class="btn btn-danger btn-sm mt-2">Coba Sekarang</a>
-        </div>
-      </div>
+      
     </div>
     
-
-    <h3 class="text-center pt-5" id="project" style="color: #896161;"> ❀ Gallery ❀</h3>
+    <div id="popupAd" style="display: none; position: fixed; bottom: 100px; right: 300px; width: 900px; z-index: 9999; background: white; box-shadow: 0 4px 12px rgba(0,0,0,0.2); border-radius: 8px; overflow: hidden;">
+      <button onclick="closePopupAd()" class="close-image-ad" style="top: 5px; right: 10px;">×</button>
+      <img src="img/iklan.png" alt="Popup Ad" style="width: 100%; height: auto;">
+    </div>
+    
+    
+    <h3 class="text-center pt-5" id="project" style="color: #896161;margin-top: 60px; margin-bottom: 40px;"> ❀ Dulce Delicia ❀</h3>
     <div class="container">
       <div class="row justify-content-center fs-6 text-center">
-        <div class="col-md-3">
+        <div class="col-md-2">
           <div class="project-box">
-            <img src="img/hackaton.jpg" class="img-fluid rounded mb-2" alt="Hackaton">
-            <div class="project-title">Hackathon</div>
-            <p>We created a smart trash bin that could detect and sort waste automatically — and won 2nd place!</p>
+            <img src="img/dish5.jpg" class="img-fluid rounded mb-2" alt="Hackaton">
+            <div class="project-title">Dolce Wafella </div>
+            <p>Golden Waffle with a soft heart; Topped with whipped cream, fresh strawberry slices and a kiss of syrup. A sweet ode to sunny mornings in Florence
+            </p>
+            <p>Rp 34.500</p>
           </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-2">
           <div class="project-box">
-            <img src="img/website.png" class="img-fluid rounded mb-2" alt="Website Project">
-            <div class="project-title">Website Project</div>
-            <p>Designed a mini banking site — from scratch using HTML, CSS, and JavaScript.</p>
+            <img src="img/dish1.jpg" class="img-fluid rounded mb-2" alt="Hackaton">
+            <div class="project-title">Icemore Creame</div>
+            <p>A luscious swirl of handcrafted strawberry Ice Cream, made with real berries and velvet cream. Cold, rich, and dreamy indulgent</p>
+            <p>Rp 21.000</p>
           </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-2">
           <div class="project-box">
-            <img src="img/lomba.jpg" class="img-fluid rounded mb-2" alt="Writing Contest">
-            <div class="project-title">Writing Contest</div>
-            <p>Explored storytelling and creative writing in a short story competition!</p>
+            <img src="img/dish2.jpg" class="img-fluid rounded mb-2" alt="Hackaton">
+            <div class="project-title">Fresca Tarta</div>
+            <p>A buttery tart filled with silky custard and crowned with glazed strawberries. Lightly sweet, deeply romantic </p>
+              <p>Rp 44.500 - 180.000</p>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="project-box">
+            <img src="img/dish3.jpg" class="img-fluid rounded mb-2" alt="Website Project">
+            <div class="project-title">La Bella Cocktail</div>
+            <p>A sparkling blend of Strawberry essence, citrus blush, and delicate botanicals. Served over ice like a midsummer breeze in Barcelona</p>
+            <p>Rp 56.000</p>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="project-box">
+            <img src="img/dish4.jpg" class="img-fluid rounded mb-2" alt="Strawberry Biscotti">
+            <div class="project-title">Strawberry Biscotti</div>
+            <p>A golden crunchy biscotti kissed with strawberry bits—perfect with tea or as a tiny gift of sweetness.
+            </p>
+            <p>Rp 17.000</p>
           </div>
         </div>
       </div>
     </div>
 
-    <h3 class="text-center pt-5" id="contact">❀ Contáctame ❀</h3>
+    <h3 class="text-center pt-5" id="contact" style="color: #896161 ">❀ Contáctame fo Order ❀</h3>
     <form name="submit-to-google-sheet" class="container mt-4" style="max-width: 600px;">
       <div class="mb-3">
         <label for="nameInput" class="form-label">Name</label>
-        <input type="text" class="form-control" id="nameInput" placeholder="Type your lovely name~" name="nama">
+        <input type="text" class="form-control" id="nameInput" placeholder="Your lovely name, pelase?" name="nama">
       </div>
       <div class="mb-3">
         <label for="emailInput" class="form-label">Email</label>
-        <input type="email" class="form-control" id="emailInput" placeholder="yoOouRrEmMail@example.com" name="email">
+        <input type="email" class="form-control" id="emailInput" placeholder="Where shall we send a sprinkle of love?" name="email">
       </div>
       <div class="mb-3">
-        <label for="messageInput" class="form-label">Mensaje</label>
-        <textarea class="form-control" id="messageInput" rows="4" placeholder="Drop a sweet message here!" name="pesan"></textarea>
+        <label for="messageInput" class="form-label">Cravings du Jour (Your Sweet Selections)</label>
+        <textarea class="form-control" id="messageInput" rows="4" placeholder="Tell us your dreamy order ♡" name="pesan"></textarea>
       </div>
       <button type="submit" class="btn" style="background-color: #896161;">💌💌💌</button>
     </form>
@@ -246,38 +311,64 @@
         <a href="https://www.instagram.com/neyziraa" style="color: white;"><i class="fa-brands fa-instagram"></i></a>
         <a href="https://www.x.com/" style="color: white;"><i class="fa-brands fa-twitter"></i></a>
       </div>
-      <p style="margin: 0;">Copyright &copy; 2025 by Nazira ✩</p>
+      <p style="margin: 0;">Copyright &copy; 2025 La Strawbella (N) ✩</p>
     </footer>
 
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
     <script>
       function showAboutUs() {
-        document.getElementById("aboutMe").scrollIntoView({ behavior: "smooth" });
-        const adsBox = document.getElementById("adsBox");
-        const aboutContent = document.getElementById("aboutContent");
-    
-        adsBox.classList.remove("d-none");
-        if (window.innerWidth >= 768) {
-          aboutContent.classList.replace("col-12", "col-md-8");
-        }
-      }
-    
-      function closeAds() {
-        const adsBox = document.getElementById("adsBox");
-        const aboutContent = document.getElementById("aboutContent");
-    
-        adsBox.classList.add("d-none");
-        aboutContent.classList.replace("col-md-6", "col-8");
+  document.getElementById("aboutMe").scrollIntoView({ behavior: "smooth" });
+  const adsBox = document.getElementById("adsBox");
+  const aboutContent = document.getElementById("aboutContent");
+
+  adsBox.classList.remove("d-none");
+
+  if (window.innerWidth >= 768) {
+    aboutContent.classList.remove("col-6");
+    aboutContent.classList.add("col-md-6");
+  }
+}
+
+function closeAds() {
+  const adsBox = document.getElementById("adsBox");
+  const aboutContent = document.getElementById("aboutContent");
+
+  adsBox.classList.add("d-none");
+
+  aboutContent.classList.remove("col-md-6");
+  if (!aboutContent.classList.contains("col-6")) {
+    aboutContent.classList.add("col-6");
+  }
+}
+      function closeImageAd() {
+        document.getElementById("imageAdBanner").style.display = "none";
       }
     </script>
     
-    <style>
-      @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(10px); }
-        to { opacity: 1; transform: translateY(0); }
-      }
-    </style>
+    <script>
+      let hasShownPopupAd = false;
+
+window.addEventListener("scroll", function () {
+  const projectSection = document.getElementById("contact");
+  const popupAd = document.getElementById("popupAd");
+
+  if (!hasShownPopupAd) {
+    const rect = projectSection.getBoundingClientRect();
+    const isInView = rect.top < window.innerHeight && rect.bottom >= 0;
+
+    if (isInView) {
+      popupAd.style.display = "block";
+      hasShownPopupAd = true; 
+    }
+  }
+});
+
+function closePopupAd() {
+  document.getElementById("popupAd").style.display = "none";
+}
+
+    </script>
     
 
   </body>
