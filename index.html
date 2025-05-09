@@ -126,8 +126,29 @@
   padding: 2px 10px;
   border-radius: 5px;
 }
+#popupAd {
+  display: none;
+  position: fixed;
+  bottom: 100px;
+  right: 20px;
+  width: 90%;
+  max-width: 900px;
+  z-index: 9999;
+  background: white;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+#popupAd img {
+  width: 100%;
+  height: auto;
+}
+
 #popupAd .close-image-ad {
   position: absolute;
+  top: 5px;
+  right: 10px;
   font-size: 30px;
   background: rgba(0, 0, 0, 0.6);
   color: white;
@@ -136,6 +157,14 @@
   padding: 5px 12px;
   border-radius: 50%;
 }
+
+@media (min-width: 1200px) {
+  #popupAd {
+    right: 300px;
+    width: 900px;
+  }
+}
+
 
 
 
@@ -231,10 +260,11 @@
       
     </div>
     
-    <div id="popupAd" style="display: none; position: fixed; bottom: 100px; right: 300px; width: 900px; z-index: 9999; background: white; box-shadow: 0 4px 12px rgba(0,0,0,0.2); border-radius: 8px; overflow: hidden;">
-      <button onclick="closePopupAd()" class="close-image-ad" style="top: 5px; right: 10px;">×</button>
-      <img src="img/iklan.png" alt="Popup Ad" style="width: 100%; height: auto;">
+    <div id="popupAd">
+      <button onclick="closePopupAd()" class="close-image-ad">×</button>
+      <img src="img/iklan.png" alt="Popup Ad">
     </div>
+    
     
     
     <h3 class="text-center pt-5" id="project" style="color: #896161;margin-top: 60px; margin-bottom: 40px;"> ❀ Dulce Delicia ❀</h3>
